@@ -1,5 +1,5 @@
 //
-//  Future.swift
+//  Promise.swift
 //  Promises
 //
 //  Created by Maksim Romanov on 27.01.2020.

@@ -7,21 +7,35 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ViewController: UIViewController {
+    var data = Data()
+    var posts = [Post]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(fetchWeatherData())
+        
+        fetchData()
+        .map {data -> [Post] in
+            let jsonDecoder = JSONDecoder()
+            let posts = try jsonDecoder.decode([Post].self, from: data)
+            return posts
+        }.add(callback: { result in
+            switch result {
+            case .success(let posts):
+                print(posts)
+            case .failure(let error):
+                print(error)
+            }
+        })
     }
 
-    func fetchWeatherData() -> Promise<Data> {
+    func fetchData() -> Promise<Data> {
         // Создаем исходный промис, который будет возвращать
         // Future<Data>, содержащую информацию о прогнозах погоды
         let promise = Promise<Data>()
-       
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=Moscow&units=metric&appId=8b32f5f2dc7dbd5254ac73d984baf944")!
+        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
        
         // Выполняем стандартный сетевой запрос
         URLSession.shared.dataTask(with: url) { data, _, error in
@@ -36,6 +50,13 @@ class ViewController: UIViewController {
         return promise
        
     }
+    
+    func parseData(data: Data) -> [Post] {
+        let json = JSON(data)
+        let postsJSONs = json.arrayValue
+        let posts = postsJSONs.map {Post(from: $0)}
+        return posts
+        }
 
 }
 
