@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import Alamofire
 import SwiftyJSON
+import PromiseKit
 
 class ViewController: UIViewController {
-    var data = Data()
-    var posts = [Post]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +29,40 @@ class ViewController: UIViewController {
                 print(error)
             }
         })
-    }
 
+    }
+    /*
+    func forecast(for city: String, on queue: DispatchQueue = .main) -> Promise<[Weather]> {
+        let baseUrl = "https://api.openweathermap.org"
+        let path = "/data/2.5/forecast"
+       
+        let params: Parameters = [
+            "q": city,
+            "units": "metric",
+            "appId": "8b32f5f2dc7dbd5254ac73d984baf306"
+        ]
+       
+        return Alamofire.request(baseUrl+path, method: .get, parameters: params)
+            .responseJSON()
+            .map(on: queue) { json, response -> [Weather] in
+                let json = JSON(json)
+               
+                if let errorMessage = json["message"].string {
+                    let error = WeatherError.cityNotFound(message: errorMessage)
+                    throw error
+                }
+               
+                let weathers = json["list"].arrayValue.map { Weather($0) }
+                return weathers
+        }
+    }*/
+    
     func fetchData() -> Promise<Data> {
         // Создаем исходный промис, который будет возвращать
         // Future<Data>, содержащую информацию о прогнозах погоды
         let promise = Promise<Data>()
         let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
-       
+        //let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=Moscow&units=metric&appId=8b32f5f2dc7dbd5254ac73d984baf306")!
         // Выполняем стандартный сетевой запрос
         URLSession.shared.dataTask(with: url) { data, _, error in
             // И в completion выполняем или нарушаем обещание
@@ -56,7 +82,7 @@ class ViewController: UIViewController {
         let postsJSONs = json.arrayValue
         let posts = postsJSONs.map {Post(from: $0)}
         return posts
-        }
+    }
 
 }
 

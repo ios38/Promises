@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		502F55CC23DE8B89008DA333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502F55CA23DE8B89008DA333 /* LaunchScreen.storyboard */; };
 		502F55D423DE8F28008DA333 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502F55D323DE8F28008DA333 /* Promise.swift */; };
 		502F55D623DF1C8E008DA333 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502F55D523DF1C8E008DA333 /* Post.swift */; };
+		502F55D823DF3676008DA333 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502F55D723DF3676008DA333 /* Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		502F55CD23DE8B89008DA333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		502F55D323DE8F28008DA333 /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
 		502F55D523DF1C8E008DA333 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		502F55D723DF3676008DA333 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		7D33CB9C0F64F9BB2C566831 /* Pods-Promises.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Promises.debug.xcconfig"; path = "Target Support Files/Pods-Promises/Pods-Promises.debug.xcconfig"; sourceTree = "<group>"; };
 		C50F45A2D60A4ED99045DD82 /* Pods-Promises.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Promises.release.xcconfig"; path = "Target Support Files/Pods-Promises/Pods-Promises.release.xcconfig"; sourceTree = "<group>"; };
 		F284E5F824171855DC8101F9 /* Pods_Promises.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Promises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,7 +54,6 @@
 				7D33CB9C0F64F9BB2C566831 /* Pods-Promises.debug.xcconfig */,
 				C50F45A2D60A4ED99045DD82 /* Pods-Promises.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -86,6 +87,7 @@
 				502F55CA23DE8B89008DA333 /* LaunchScreen.storyboard */,
 				502F55CD23DE8B89008DA333 /* Info.plist */,
 				502F55D323DE8F28008DA333 /* Promise.swift */,
+				502F55D723DF3676008DA333 /* Weather.swift */,
 			);
 			path = Promises;
 			sourceTree = "<group>";
@@ -217,6 +219,7 @@
 				502F55C023DE8B81008DA333 /* AppDelegate.swift in Sources */,
 				502F55D423DE8F28008DA333 /* Promise.swift in Sources */,
 				502F55C223DE8B81008DA333 /* SceneDelegate.swift in Sources */,
+				502F55D823DF3676008DA333 /* Weather.swift in Sources */,
 				502F55D623DF1C8E008DA333 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
